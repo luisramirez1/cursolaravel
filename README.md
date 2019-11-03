@@ -1,4 +1,5 @@
-- [Link Descarga Composer](https://getcomposer.org/Composer-Setup.exe)
+- [Descargar Composer](https://getcomposer.org/Composer-Setup.exe)
+- [Descargar XAMPP](https://sourceforge.net/projects/xampp/files/XAMPP%20Windows/7.3.11/xampp-windows-x64-7.3.11-0-VC15-installer.exe/download)
 
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
