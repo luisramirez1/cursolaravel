@@ -17,4 +17,4 @@ use Illuminate\Http\Request;
     return $request->user();
 });*/
 
-Route::resource('usuarios', 'UsersController', ['except' => ['create', 'edit']]);
+Route::resource('usuarios', 'UsuariosController', ['except' => ['create', 'edit']]);

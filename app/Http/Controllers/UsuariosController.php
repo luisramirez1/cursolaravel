@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
+use App\User;
 use Illuminate\Http\Request;
 
 class UsuariosController extends Controller
@@ -11,9 +13,11 @@ class UsuariosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return response()->json(['hola'], 200);
+        $user = User::get();
+
+        return response()->json($user, 200);
     }
 
     /**
@@ -22,9 +26,14 @@ class UsuariosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        //
+        $data = $request->all();
+
+        $user = User::create($data);
+
+
+        return response()->json($user,200);
     }
 
     /**
@@ -35,7 +44,12 @@ class UsuariosController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::where('id', $id)->firstOrFail();
+        $user = User::findOrFail($id);
+
+
+
+        return response()->json($user,200);
     }
 
     /**
@@ -47,7 +61,11 @@ class UsuariosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::where('id', $id)->firstOrFail();
+
+        $user->update($request->all());
+
+        return response()->json($user,200);
     }
 
     /**
@@ -58,6 +76,8 @@ class UsuariosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::findOrFail($id)->delete();
+
+        return response()->json(['result' => 'ok'],200);
     }
 }
